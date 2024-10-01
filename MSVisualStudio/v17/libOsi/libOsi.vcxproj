@@ -50,14 +50,11 @@
     <ClInclude Include="..\..\..\src\Osi\OsiSolverInterface.hpp" />
     <ClInclude Include="..\..\..\src\Osi\OsiSolverParameters.hpp" />
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\CoinUtils\MSVisualStudio\v17\libCoinUtils\libCoinUtils.vcxproj">
       <Project>{6d2ef92a-d693-47e3-a325-a686e78c5ffd}</Project>
     </ProjectReference>
   </ItemGroup>
-=======
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{BF5C7532-EE0A-479B-9993-72134087D530}</ProjectGuid>
@@ -112,7 +109,6 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-<<<<<<< HEAD
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -122,21 +118,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-=======
-    <IncludePath>..\..\..\..\CoinUtils\src;$(IncludePath);..\..\..\..\BuildTools\headers\</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\..\..\..\CoinUtils\src;$(IncludePath);..\..\..\..\BuildTools\headers\</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <IncludePath>..\..\..\..\CoinUtils\src;$(IncludePath);..\..\..\..\BuildTools\headers\</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <IncludePath>..\..\..\..\CoinUtils\src;$(IncludePath);..\..\..\..\BuildTools\headers\</IncludePath>
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -144,16 +125,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-<<<<<<< HEAD
       <PreprocessorDefinitions>OSILIB_BUILD;_LIB;_CRT_SECURE_NO_WARNINGS;_DEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\..\..\..\CoinUtils\src;\</AdditionalIncludeDirectories>
-=======
-      <PreprocessorDefinitions>OSILIB_BUILD;WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -166,16 +141,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-<<<<<<< HEAD
       <PreprocessorDefinitions>OSILIB_BUILD;_LIB;_CRT_SECURE_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\..\..\..\CoinUtils\src;\</AdditionalIncludeDirectories>
-=======
-      <PreprocessorDefinitions>OSILIB_BUILD;WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -190,18 +159,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-<<<<<<< HEAD
       <PreprocessorDefinitions>OSILIB_BUILD;_LIB;_CRT_SECURE_NO_WARNINGS;NDEBUG;WIN32</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>..\..\..\..\CoinUtils\src;\</AdditionalIncludeDirectories>
-=======
-      <PreprocessorDefinitions>OSILIB_BUILD;WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions);NDEBUG;_NDEBUG</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -218,19 +180,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-<<<<<<< HEAD
       <PreprocessorDefinitions>OSILIB_BUILD;_LIB;_CRT_SECURE_NO_WARNINGS;NDEBUG</PreprocessorDefinitions>
-=======
-      <PreprocessorDefinitions>OSILIB_BUILD;WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions);NDEBUG;_NDEBUG</PreprocessorDefinitions>
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-<<<<<<< HEAD
       <AdditionalIncludeDirectories>..\..\..\..\CoinUtils\src;\</AdditionalIncludeDirectories>
-=======
->>>>>>> Add Visual Studio 2022 (v17) projects and solution
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
