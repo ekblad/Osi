@@ -1,81 +1,58 @@
 # Copyright (C) 2006 International Business Machines and others.
 # All Rights Reserved.
 # This file is distributed under the Eclipse Public License.
-
-## $Id$
-
+#
 # Author:  Andreas Waechter           IBM    2006-04-13
 
-AUTOMAKE_OPTIONS = foreign
-
-EXTRA_DIST =
+include BuildTools/Makemain.inc
 
 ########################################################################
-#                          Subdirectories                              #
+#            Subdirectories and installation of .pc files              #
 ########################################################################
 
-# subdirs is set by configure as the list of all subdirectories to recurse
-# into
-SUBDIRS = $(subdirs)
+SUBDIRS = src/Osi src/OsiCommonTest
+
+pkgconfiglib_DATA = osi.pc osi-unittests.pc
+
+if COIN_HAS_CPLEX
+  SUBDIRS += src/OsiCpx
+  pkgconfiglib_DATA += osi-cplex.pc
+endif
+if COIN_HAS_GLPK
+  SUBDIRS += src/OsiGlpk
+  pkgconfiglib_DATA += osi-glpk.pc
+endif
+if COIN_HAS_MOSEK
+  SUBDIRS += src/OsiMsk
+  pkgconfiglib_DATA += osi-mosek.pc
+endif
+if COIN_HAS_XPRESS
+  SUBDIRS += src/OsiXpr
+  pkgconfiglib_DATA += osi-xpress.pc
+endif
+if COIN_HAS_GUROBI
+  SUBDIRS += src/OsiGrb
+  pkgconfiglib_DATA += osi-gurobi.pc
+endif
+if COIN_HAS_SOPLEX
+  SUBDIRS += src/OsiSpx
+  pkgconfiglib_DATA += osi-soplex.pc
+endif
 
 ########################################################################
 #                           Extra Targets                              #
 ########################################################################
 
 test: all
-	cd Osi; make test
+	cd test; $(MAKE) test
 
 unitTest: test
 
-tests: all
-	for dir in $(subdirs); do \
-	  if test -r $$dir/test/Makefile; then \
-	    (cd $$dir; make test) \
-	  fi; \
-	done
+clean-local: clean-doxygen-docs
+	if test -r test/Makefile; then cd test; $(MAKE) clean; fi
 
-unitTests: tests
+install-exec-local: install-doc
 
-# Generate doxygen doc'n in subdirectories (except @PACKAGE_NAME@) if a doxydoc
-# directory is present, then do the base, if present.
+uninstall-local: uninstall-doc uninstall-doxygen-docs
 
-doxydoc:
-	for dir in $(subdirs) ; do \
-	  if test $$dir != @PACKAGE_NAME@ && test -r $$dir/doxydoc ; then \
-	    (cd $$dir ; $(MAKE) doxydoc) \
-	  fi ; \
-	done ; \
-	if test -r doxydoc/doxygen.conf ; then \
-	  doxygen doxydoc/doxygen.conf ; \
-	fi
-
-clean-doxydoc:
-	( cd doxydoc ; rm -rf html *.log *.tag )
-
-# DocInstallDir is defined in Makemain.inc and is specific to the package.
-# For the short term, adopt the notion that we install only the package
-# doxydoc.
-
-install-doxydoc: doxydoc
-	if test -r doxydoc/doxygen.conf ; then \
-	  $(mkdir_p) $(DocInstallDir) ; \
-	  cp -R doxydoc $(DocInstallDir) ; \
-	fi
-
-uninstall-doxydoc:
-	rm -rf $(DocInstallDir)/doxydoc
-
-clean-local: clean-doxydoc
-# install-data-local: install-doxydoc
-uninstall-local: uninstall-doxydoc
-
-.PHONY: test unitTest tests unitTests doxydoc
-
-########################################################################
-#                         Maintainer Stuff                             #
-########################################################################
-
-# Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = coin_subdirs.txt
-
-include BuildTools/Makemain.inc
+.PHONY: test unitTest
